@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: dev
+  cloud:
+    refresh:
+      refreshable: none
+  application:
+    name: eureka-server
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus, info, health, shutdown

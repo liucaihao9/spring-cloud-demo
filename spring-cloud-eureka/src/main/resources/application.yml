@@ -1,0 +1,11 @@
+#eureka:
+#  instance:
+#    hostname: ${spring.cloud.client.ip-address}
+#    instance-id: ${spring.cloud.client.ip-address}:${server.port}:V@project.version@
+#logging.level.com.hashtech.hashflow.data.admin.mapper: DEBUG
+#server:
+#  tomcat:
+#    basedir: ../logs/system/
+#    accesslog:
+#      enabled: false
+#      pattern: '%t %a "%r" %s (%D ms)'

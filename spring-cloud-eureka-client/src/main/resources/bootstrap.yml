@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: dev
+  cloud:
+    refresh:
+      refreshable: none
+    inetutils:
+      ignored-interfaces: ['VMware.*']
+      use-only-site-local-interfaces: true
+  application:
+    name: eureka-client
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus, info, health, shutdown

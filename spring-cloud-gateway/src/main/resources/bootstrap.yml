@@ -1,0 +1,24 @@
+spring:
+  profiles:
+    active: dev
+  cloud:
+    refresh:
+      refreshable: none
+    inetutils:
+      ignored-interfaces: ['VMware.*']
+      use-only-site-local-interfaces: true
+  application:
+    name: api-gateway
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus, info, health, shutdown
+#zuul:
+#  routes:
+#    feign-consumer:
+#      path: /feign-consumer/**
+
+logging:
+  level:
+    com.netflix: debug

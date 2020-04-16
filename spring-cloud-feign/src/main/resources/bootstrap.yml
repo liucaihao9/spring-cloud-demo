@@ -1,0 +1,41 @@
+spring:
+  profiles:
+    active: dev
+  cloud:
+    refresh:
+      refreshable: none
+    inetutils:
+      ignored-interfaces: ['VMware.*']
+      use-only-site-local-interfaces: true
+  application:
+    name: feign-consumer
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus, info, health, shutdown
+#设置全局连接时间为500ms
+#ribbon:
+#  ConnectTimeout: 500
+#  ReadTimeout: 5600
+
+#设置对EUREKA-CLIENT服务的连接时间以及超时时间
+eureka-client:
+  ribbon:
+    ConnectTimeout: 500
+    ReadTimeout: 2000
+    MaxAutoRetriesNextServer: 2
+    MaxAutoRetries: 1
+
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    eureka-client:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000

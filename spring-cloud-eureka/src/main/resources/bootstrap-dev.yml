@@ -1,0 +1,58 @@
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://127.0.0.1:8000/eureka/
+#    register-with-eureka: true
+#  instance:
+#    hostname: ${spring.cloud.client.ipAddress}
+#    instance-id: ${spring.cloud.client.ipAddress}:${server.port}:V@project.version@
+server:
+  port: 9140
+#mybatis:
+#  mapper-locations: classpath*:mysql/*Mapper.xml , classpath*:mapper/*Mapper.xml,classpath*:com/hashtech/**/mapper/mysql/*.xml
+#spring:
+#  datasource:
+#    url: "jdbc:mysql://192.168.0.23:3306/hashflow?useSSL=false&useUnicode=true&characterEncoding=utf8"
+#    username: 'hashflow'
+#    password: 'Hashflow@2019'
+#    driver-class-name: com.mysql.jdbc.Driver
+#    hikari:
+#      maximum-pool-size: 50
+#      idle-timeout: 1000
+#      pool-name: hikari
+#  cloud:
+#    config:
+#      enabled: false
+#      discovery:
+#        enabled: false
+#    loadbalancer:
+#      retry:
+#        enabled: false
+#  redis:
+#    host: 192.168.0.180
+#    port: 7000
+#    timeout: 20000
+#    cluster:
+#      nodes: 192.168.0.23:6378,192.168.0.23:6379,192.168.0.24:6378,192.168.0.24:6379,192.168.0.25:6378,192.168.0.25:6379
+#      maxRedirects: 6
+#  application:
+#    name: hashflowadmin
+#logging:
+#  path: ../../logs/hashflow/hashflowadmin/admin
+#  level:
+#    com.hashtech.hashflow.data.admin.mapper: DEBUG
+#sequence:
+#  enable: true
+#  type: snowflake
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false #开发环境下关闭自我保护机制
+#  generate: random
+
